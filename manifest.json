@@ -1,0 +1,11 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "estudosdelta2026-ux.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "estudosdelta2026-ux.github",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
