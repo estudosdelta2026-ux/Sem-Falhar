@@ -1,18 +1,27 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "estudosdelta2026-ux.github",
-  "orientation": "any",
-  "scope": "//Sem-Falhar/",
-  "short_name": "estudosdelta2026-ux.github",
-  "start_url": "//Sem-Falhar/",
-  "theme_color": "#ffffff",
-  "id": "Sem_falhar",
+  "name": "Sem Falhar",
+  "short_name": "SemFalhar",
   "description": "Aplicativo de gerenciamento de estudos",
-  "lang": "pt",
-  "categories": [
-    "education",
-    "productivity"
+  "start_url": "/Sem-Falhar/",
+  "scope": "/Sem-Falhar/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "orientation": "any",
+  "dir": "ltr",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "launchericon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "launchericon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
