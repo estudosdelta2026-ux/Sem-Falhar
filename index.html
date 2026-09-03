@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sem falhar</title>
+<!-- PWA Manifest & Meta Tags -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1b222d">
+<link rel="apple-touch-icon" href="https://via.placeholder.com/192">
 <!-- Biblioteca SheetJS para leitura de arquivos Excel (.xlsx) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <!-- Biblioteca FontAwesome para ícones da aba Planejamento -->
@@ -867,6 +871,15 @@
   </div>
 
   <script>
+    // Registro do Service Worker para suporte PWA/Offline
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('pwabuilder-sw.js')
+          .then((reg) => { console.log('Service Worker registrado com sucesso:', reg.scope); })
+          .catch((err) => { console.log('Falha ao registrar Service Worker:', err); });
+      });
+    }
+
     // Estado da Aplicação
     let editalData = [
       {
