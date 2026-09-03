@@ -4,8 +4,15 @@
   "display": "standalone",
   "name": "estudosdelta2026-ux.github",
   "orientation": "any",
-  "scope": "/",
+  "scope": "//Sem-Falhar/",
   "short_name": "estudosdelta2026-ux.github",
-  "start_url": "/",
-  "theme_color": "#ffffff"
+  "start_url": "//Sem-Falhar/",
+  "theme_color": "#ffffff",
+  "id": "Sem_falhar",
+  "description": "Aplicativo de gerenciamento de estudos",
+  "lang": "pt",
+  "categories": [
+    "education",
+    "productivity"
+  ]
 }
