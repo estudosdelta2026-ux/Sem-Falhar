@@ -37,15 +37,15 @@
   .logo-icon { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; background: #fff; flex-shrink: 0; border: 2px solid white; display: flex; align-items: center; justify-content: center; }
   .logo-icon svg { width: 100%; height: 100%; display: block; }
   
-  .menu-item { padding: 12px 20px; color: rgba(255,255,255,0.9); cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: 500; transition: 0.2s; }
+  .menu-item { padding: 12px 20px; color: rgba(255,255,255,0.9); cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: 500; transition: 0.2s; min-height: 48px; }
   .menu-item:hover { background-color: rgba(255,255,255,0.1); }
   .menu-item.active { background-color: rgba(255,255,255,0.2); font-weight: bold; border-radius: 0 20px 20px 0; margin-right: 15px; }
 
   /* Main Content */
   .main-content { flex: 1; display: flex; flex-direction: column; padding: 25px 40px; overflow-y: auto; position: relative; }
-  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
   .header h1 { font-size: 22px; font-weight: 600; color: white; }
-  .btn-adicionar { background-color: var(--primary-green); color: white; border: none; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 13px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.2s; }
+  .btn-adicionar { background-color: var(--primary-green); color: white; border: none; padding: 10px 18px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 13px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.2s; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
   .btn-adicionar:hover { opacity: 0.9; }
 
   /* Views / Abas */
@@ -149,6 +149,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .subtopics-container {
     margin-top: 10px;
@@ -164,20 +166,25 @@
     align-items: center;
     font-size: 12px;
     background: var(--bg-dark);
-    padding: 6px 10px;
+    padding: 8px 10px;
     border-radius: 4px;
+    gap: 10px;
   }
 
-  .action-btns-group { display: flex; gap: 6px; align-items: center; }
+  .action-btns-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
   .btn-action-small {
     background: var(--bg-dark);
     color: var(--text-light);
     border: 1px solid var(--border-color);
-    padding: 3px 8px;
+    padding: 6px 10px;
     border-radius: 4px;
     font-size: 11px;
     cursor: pointer;
     transition: 0.2s;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .btn-action-small:hover { border-color: var(--primary-green); color: var(--primary-green); }
   .btn-action-small.delete:hover { border-color: var(--accent-red); color: var(--accent-red); }
@@ -194,6 +201,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   .weekly-title {
     font-size: 14px;
@@ -206,6 +215,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-wrap: wrap;
   }
   .weekly-nav-arrows {
     display: flex;
@@ -233,12 +243,13 @@
     background: transparent;
     border: none;
     color: var(--text-muted);
-    padding: 4px 12px;
+    padding: 6px 12px;
     border-radius: 4px;
     font-size: 11px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s;
+    min-height: 36px;
   }
   .weekly-toggle-btn.active {
     background: var(--primary-green);
@@ -254,6 +265,7 @@
     padding-top: 10px;
     padding-bottom: 5px;
     border-bottom: 1px solid var(--border-color);
+    overflow-x: auto;
   }
   .weekly-grid-lines {
     position: absolute;
@@ -286,9 +298,10 @@
     gap: 6px;
     flex: 1;
     z-index: 2;
+    min-width: 30px;
   }
   .weekly-bar {
-    width: 28px;
+    width: 24px;
     background: var(--primary-green);
     border-radius: 4px 4px 0 0;
     transition: height 0.3s ease;
@@ -319,8 +332,8 @@
     position: fixed;
     bottom: 25px;
     right: 25px;
-    width: 50px;
-    height: 50px;
+    width: 54px;
+    height: 54px;
     background-color: var(--primary-green);
     border-radius: 50%;
     display: flex;
@@ -336,46 +349,102 @@
   .floating-timer-btn:hover { transform: scale(1.08); }
 
   /* Modais Gerais */
-  .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(27, 32, 43, 0.92); z-index: 1000; align-items: center; justify-content: center; }
+  .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(27, 32, 43, 0.92); z-index: 1000; align-items: center; justify-content: center; padding: 15px; }
   .modal-overlay.active { display: flex; }
 
-  .registro-box { background-color: var(--panel-bg); width: 680px; max-height: 90vh; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); padding: 25px; position: relative; border: 1px solid var(--border-color); overflow-y: auto; }
-  .close-btn { position: absolute; top: 15px; right: 20px; color: var(--text-muted); cursor: pointer; font-size: 22px; font-weight: bold; }
+  .registro-box { background-color: var(--panel-bg); width: 100%; max-width: 680px; max-height: 90vh; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); padding: 25px; position: relative; border: 1px solid var(--border-color); overflow-y: auto; }
+  .close-btn { position: absolute; top: 15px; right: 20px; color: var(--text-muted); cursor: pointer; font-size: 24px; font-weight: bold; min-width: 40px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
   .close-btn:hover { color: white; }
   .registro-box h2 { font-size: 20px; margin-bottom: 20px; color: var(--text-light); border: none; padding: 0; }
 
   /* Timer separado */
   .timer-card { background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; text-align: center; }
-  .timer-modes { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
-  .timer-mode-btn { background: var(--panel-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 6px 14px; border-radius: 15px; font-size: 12px; cursor: pointer; font-weight: bold; }
+  .timer-modes { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+  .timer-mode-btn { background: var(--panel-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 8px 14px; border-radius: 15px; font-size: 12px; cursor: pointer; font-weight: bold; min-height: 40px; }
   .timer-mode-btn.active { background: var(--primary-green); color: white; border-color: var(--primary-green); }
   .timer-display { font-size: 52px; font-weight: bold; color: white; letter-spacing: 2px; margin-bottom: 20px; }
-  .timer-controls { display: flex; justify-content: center; gap: 12px; }
-  .timer-btn { padding: 8px 20px; border-radius: 6px; font-weight: bold; font-size: 13px; cursor: pointer; border: none; }
+  .timer-controls { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .timer-btn { padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 13px; cursor: pointer; border: none; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
   .btn-start { background: var(--primary-green); color: white; }
   .btn-pause { background: var(--accent-orange); color: white; }
   .btn-reset { background: var(--border-color); color: white; }
 
-  .date-tabs { display: flex; gap: 10px; margin-bottom: 15px; }
-  .date-tab { padding: 6px 18px; border-radius: 15px; background: #fff; color: #333; font-size: 12px; font-weight: bold; cursor: pointer; border: none; }
+  .date-tabs { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+  .date-tab { padding: 8px 18px; border-radius: 15px; background: #fff; color: #333; font-size: 12px; font-weight: bold; cursor: pointer; border: none; min-height: 40px; }
   .date-tab.active { background-color: var(--primary-green); color: white; }
   
-  .custom-date-container { display: none; margin-bottom: 15px; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); }
-  .custom-date-container input[type="date"] { background: var(--bg-dark); border: 1px solid var(--border-color); color: white; padding: 5px 10px; border-radius: 4px; }
+  .custom-date-container { display: none; margin-bottom: 15px; align-items: center; gap: 10px; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+  .custom-date-container input[type="date"] { background: var(--bg-dark); border: 1px solid var(--border-color); color: white; padding: 8px 10px; border-radius: 4px; min-height: 40px; }
 
   .form-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 15px; }
   .input-group { display: flex; flex-direction: column; gap: 5px; }
   .input-group label { font-size: 10px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; }
-  .input-group input, .input-group select { background: transparent; border: none; border-bottom: 1px solid var(--primary-green); color: white; padding: 5px 0; font-size: 14px; outline: none; }
+  .input-group input, .input-group select { background: transparent; border: none; border-bottom: 1px solid var(--primary-green); color: white; padding: 8px 0; font-size: 14px; outline: none; min-height: 40px; }
   .input-group select option { background: var(--panel-bg); color: white; }
   
-  .metrics-grid { display: flex; gap: 15px; margin-bottom: 15px; }
-  .metric-box { border: 1px solid var(--border-color); border-radius: 8px; padding: 10px; flex: 1; position: relative; background: rgba(0,0,0,0.1); }
+  .metrics-grid { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
+  .metric-box { border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; flex: 1; min-width: 200px; position: relative; background: rgba(0,0,0,0.1); }
   .metric-box h3 { font-size: 10px; position: absolute; top: -7px; left: 10px; background: var(--panel-bg); padding: 0 5px; color: var(--text-light); margin: 0; text-transform: none; letter-spacing: normal; }
   
-  .modal-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; border-top: 1px solid var(--border-color); padding-top: 15px; }
-  .btn-salvar { background-color: var(--primary-green); color: white; padding: 8px 25px; border-radius: 5px; border: none; cursor: pointer; font-weight: bold; }
-  .btn-cancelar { background: transparent; color: var(--text-light); border: 1px solid var(--border-color); padding: 8px 20px; border-radius: 5px; cursor: pointer; }
+  .modal-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; border-top: 1px solid var(--border-color); padding-top: 15px; flex-wrap: wrap; gap: 10px; }
+  .btn-salvar { background-color: var(--primary-green); color: white; padding: 10px 25px; border-radius: 5px; border: none; cursor: pointer; font-weight: bold; min-height: 44px; }
+  .btn-cancelar { background: transparent; color: var(--text-light); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 5px; cursor: pointer; min-height: 44px; }
+
+  /* Media Queries para Layout Responsivo e Touch Targets Celular/Tablet */
+  @media (max-width: 1024px) {
+    .dashboard-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard-secondary {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+      height: 100vh;
+      overflow: auto;
+    }
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      overflow-x: auto;
+      padding: 10px 0;
+      flex-shrink: 0;
+    }
+    .logo-container {
+      display: none;
+    }
+    .menu-item {
+      padding: 10px 15px;
+      white-space: nowrap;
+      border-radius: 6px;
+      margin-right: 0;
+      min-height: 48px;
+    }
+    .menu-item.active {
+      border-radius: 6px;
+      margin-right: 0;
+    }
+    .main-content {
+      padding: 15px;
+      overflow-y: visible;
+      height: auto;
+    }
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-grid .input-group {
+      grid-column: span 1 !important;
+    }
+    .dash-panel {
+      padding: 15px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -397,11 +466,11 @@
       </div>
       Sem falhar
     </div>
-    <div class="menu-item active" onclick="switchTab(event, 'homeView')">Home</div>
-    <div class="menu-item" onclick="switchTab(event, 'planosView')">Planos</div>
-    <div class="menu-item" onclick="switchTab(event, 'homeView')">Disciplinas</div>
-    <div class="menu-item" onclick="switchTab(event, 'homeView')">Edital</div>
-    <div class="menu-item" onclick="switchTab(event, 'planejamentoView')">Planejamento</div>
+    <div class="menu-item active" onclick="switchTab(event, 'homeView')"><i class="fa-solid fa-house"></i> Home</div>
+    <div class="menu-item" onclick="switchTab(event, 'planosView')"><i class="fa-solid fa-book"></i> Planos</div>
+    <div class="menu-item" onclick="switchTab(event, 'homeView')"><i class="fa-solid fa-list-check"></i> Disciplinas</div>
+    <div class="menu-item" onclick="switchTab(event, 'homeView')"><i class="fa-solid fa-file-lines"></i> Edital</div>
+    <div class="menu-item" onclick="switchTab(event, 'planejamentoView')"><i class="fa-solid fa-calendar-days"></i> Planejamento</div>
   </div>
 
   <!-- Main Content Container -->
@@ -435,7 +504,7 @@
           <h3>Data da Prova</h3>
           <div class="value" style="color: var(--accent-orange);" id="cardDiasProva">-- Dias</div>
           <div class="sub-value" style="display: flex; align-items: center; gap: 5px; margin-top: 5px;">
-            <input type="date" id="inputDataProva" onchange="atualizarDataProva(this.value)" style="background: var(--bg-dark); border: 1px solid var(--border-color); color: white; padding: 2px 5px; border-radius: 4px; font-size: 11px;">
+            <input type="date" id="inputDataProva" onchange="atualizarDataProva(this.value)" style="background: var(--bg-dark); border: 1px solid var(--border-color); color: white; padding: 4px 6px; border-radius: 4px; font-size: 11px; min-height: 36px;">
           </div>
         </div>
       </div>
@@ -516,13 +585,13 @@
     <div id="planosView" class="view-section">
       <div class="header">
         <h1>Planos & Edital Verticalizado</h1>
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <button class="btn-adicionar" onclick="adicionarTopicoManualPrompt()">+ Adicionar Tópico</button>
           <button class="btn-adicionar" style="background-color: var(--accent-blue);" onclick="document.getElementById('excelFileInput').click()">+ Enviar Edital Excel</button>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px;">
         <!-- Painel de Importação do Edital -->
         <div class="dash-panel">
           <h2>Importar Edital Verticalizado</h2>
@@ -548,7 +617,7 @@
               <div class="progress-bar-fill" id="progressoGeralBar" style="width: 0%;"></div>
             </div>
           </div>
-          <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; background: var(--bg-dark); padding: 10px; border-radius: 6px;">
+          <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; background: var(--bg-dark); padding: 10px; border-radius: 6px; flex-wrap: wrap; gap: 5px;">
             <span>Total de Subtópicos: <strong id="totalSubtopicosCount" style="color: white;">0</strong></span>
             <span>Subtópicos Concluídos: <strong id="concluidosSubCount" style="color: var(--primary-green);">0</strong></span>
           </div>
@@ -571,11 +640,11 @@
 
     <!-- ABA 3: PLANEJAMENTO (CALENDÁRIO INTEGRADO) -->
     <div id="planejamentoView" class="view-section">
-      <div class="flex justify-between items-center mb-6">
+      <div class="flex justify-between items-center mb-6 flex-wrap gap-3">
         <h1 class="text-2xl font-semibold text-white">Planejamento</h1>
         <div class="flex gap-3">
-          <button onclick="replanejarCalendario()" class="bg-[#0f766e] hover:bg-[#115e59] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer">Replanejar</button>
-          <button onclick="removerPlanejamentos()" class="bg-[#1f2430] hover:bg-[#283042] text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-700 cursor-pointer">Remover</button>
+          <button onclick="replanejarCalendario()" class="bg-[#0f766e] hover:bg-[#115e59] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer min-h-[40px]">Replanejar</button>
+          <button onclick="removerPlanejamentos()" class="bg-[#1f2430] hover:bg-[#283042] text-gray-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-700 cursor-pointer min-h-[40px]">Remover</button>
         </div>
       </div>
 
@@ -584,17 +653,17 @@
         
         <!-- Calendário Semanal Principal (Ocupa 3 colunas) -->
         <div class="xl:col-span-3 bg-[#1a1d26] border border-gray-800 rounded-xl p-4 shadow-lg flex flex-col">
-          <div class="flex justify-between items-center mb-4 px-2">
+          <div class="flex justify-between items-center mb-4 px-2 flex-wrap gap-2">
             <div class="flex items-center gap-3 text-lg font-medium text-emerald-400">
-              <button onclick="mudarSemanaPlanejamento(-1)" class="text-gray-400 hover:text-white cursor-pointer">❮</button>
+              <button onclick="mudarSemanaPlanejamento(-1)" class="text-gray-400 hover:text-white cursor-pointer p-2">❮</button>
               <span id="planejamentoMesAno">Setembro, 2026</span>
-              <button onclick="mudarSemanaPlanejamento(1)" class="text-gray-400 hover:text-white cursor-pointer">❯</button>
+              <button onclick="mudarSemanaPlanejamento(1)" class="text-gray-400 hover:text-white cursor-pointer p-2">❯</button>
             </div>
             <span class="text-xs bg-[#12141c] px-3 py-1 rounded border border-gray-700 text-gray-300">Semanal</span>
           </div>
 
           <!-- Tabela / Grade de Dias (7 colunas) -->
-          <div id="calendar-grid" class="grid grid-cols-7 gap-2 flex-1">
+          <div id="calendar-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-7 gap-2 flex-1">
             <!-- Gerado via JavaScript -->
           </div>
         </div>
@@ -606,9 +675,9 @@
             <div class="flex justify-between items-center mb-3">
               <span class="text-xs font-bold text-gray-300 uppercase tracking-wider">SET.</span>
               <div class="flex items-center gap-2 text-xs text-gray-400">
-                <span class="cursor-pointer hover:text-white">❮</span>
+                <span class="cursor-pointer hover:text-white p-1">❮</span>
                 <span class="text-emerald-400 font-semibold">06/09 ~ 12/09</span>
-                <span class="cursor-pointer hover:text-white">❯</span>
+                <span class="cursor-pointer hover:text-white p-1">❯</span>
               </div>
             </div>
             <!-- Grid do Mini Calendário -->
@@ -640,16 +709,16 @@
           <div class="border-t border-gray-800 pt-4">
             <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Minhas Agendas</h3>
             <div class="space-y-2.5 text-xs text-gray-300">
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="checkbox" checked class="accent-emerald-500 rounded">
+              <label class="flex items-center gap-2.5 cursor-pointer py-1">
+                <input type="checkbox" checked class="accent-emerald-500 rounded w-4 h-4">
                 <span>REVISÕES</span>
               </label>
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="checkbox" checked class="accent-emerald-500 rounded">
+              <label class="flex items-center gap-2.5 cursor-pointer py-1">
+                <input type="checkbox" checked class="accent-emerald-500 rounded w-4 h-4">
                 <span>HISTÓRICO</span>
               </label>
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="checkbox" checked class="accent-emerald-500 rounded">
+              <label class="flex items-center gap-2.5 cursor-pointer py-1">
+                <input type="checkbox" checked class="accent-emerald-500 rounded w-4 h-4">
                 <span>PLANEJAMENTO</span>
               </label>
             </div>
@@ -683,7 +752,7 @@
         
         <div style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted);">
           <span>Ajustar minutos:</span>
-          <input type="number" id="customMinutesInput" value="25" min="1" max="180" style="width: 50px; background: var(--bg-dark); border: 1px solid var(--border-color); color: white; text-align: center; border-radius: 4px; padding: 3px;" onchange="aplicarTempoCustomizado(this.value)">
+          <input type="number" id="customMinutesInput" value="25" min="1" max="180" style="width: 60px; background: var(--bg-dark); border: 1px solid var(--border-color); color: white; text-align: center; border-radius: 4px; padding: 6px;" onchange="aplicarTempoCustomizado(this.value)">
         </div>
 
         <div class="timer-controls">
@@ -726,13 +795,13 @@
         </div>
         <div class="input-group" style="grid-column: span 2;">
           <label>Disciplina / Tópico</label>
-          <select id="regTopicoSelect" style="background: var(--bg-dark); border: none; border-bottom: 1px solid var(--primary-green); color: white; padding: 5px 0; font-size: 14px; outline: none;" onchange="onTopicoRegistroChange(this.value)">
+          <select id="regTopicoSelect" style="background: var(--bg-dark); border: none; border-bottom: 1px solid var(--primary-green); color: white; padding: 8px 0; font-size: 14px; outline: none; min-height: 40px;" onchange="onTopicoRegistroChange(this.value)">
             <option value="">Selecione o Tópico</option>
           </select>
         </div>
         <div class="input-group" style="grid-column: span 2;">
           <label>Tópico / Subtópico</label>
-          <select id="regSubtopicoSelect" style="background: var(--bg-dark); border: none; border-bottom: 1px solid var(--primary-green); color: white; padding: 5px 0; font-size: 14px; outline: none;">
+          <select id="regSubtopicoSelect" style="background: var(--bg-dark); border: none; border-bottom: 1px solid var(--primary-green); color: white; padding: 8px 0; font-size: 14px; outline: none; min-height: 40px;">
             <option value="">Selecione o Subtópico</option>
           </select>
         </div>
@@ -746,21 +815,21 @@
         <div class="metric-box">
           <h3>QUESTÕES (Acertos / Erros)</h3>
           <div style="display: flex; gap: 10px; margin-top: 10px;">
-            <input type="number" id="regAcertos" style="width: 70px; background: transparent; color: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 4px;" value="0" min="0">
-            <input type="number" id="regErros" style="width: 70px; background: transparent; color: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 4px;" value="0" min="0">
+            <input type="number" id="regAcertos" style="width: 70px; background: transparent; color: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; min-height: 40px;" value="0" min="0">
+            <input type="number" id="regErros" style="width: 70px; background: transparent; color: white; border: 1px solid var(--border-color); border-radius: 4px; padding: 6px; min-height: 40px;" value="0" min="0">
           </div>
         </div>
         <div class="metric-box">
           <h3>OBSERVAÇÕES</h3>
           <div style="margin-top: 8px;">
-            <input type="text" id="regComentarios" placeholder="Notas sobre o estudo..." style="width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border-color); color: white; font-size: 13px; outline: none;">
+            <input type="text" id="regComentarios" placeholder="Notas sobre o estudo..." style="width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border-color); color: white; font-size: 13px; outline: none; min-height: 40px;">
           </div>
         </div>
       </div>
 
       <div class="modal-actions">
         <span style="font-size: 11px; color: var(--text-muted);">Computado automaticamente no painel e constância.</span>
-        <div>
+        <div style="display: flex; gap: 10px;">
           <button class="btn-cancelar" onclick="closeRegistroModal()">Cancelar</button>
           <button class="btn-salvar" onclick="salvarEstudoManual()">Salvar Estudo</button>
         </div>
@@ -777,21 +846,21 @@
       <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px;">
         <div class="input-group">
           <label>Meta Diária de Horas (ex: 3)</label>
-          <input type="number" id="inputMetaDiaria" min="1" max="24" value="3" style="border-bottom: 1px solid var(--primary-green); padding: 5px; color: white;">
+          <input type="number" id="inputMetaDiaria" min="1" max="24" value="3" style="border-bottom: 1px solid var(--primary-green); padding: 8px; color: white; min-height: 40px;">
         </div>
         <div class="input-group">
           <label>Meta Semanal de Horas (ex: 24)</label>
-          <input type="number" id="inputMetaSemanalHoras" min="1" max="168" value="24" style="border-bottom: 1px solid var(--primary-green); padding: 5px; color: white;">
+          <input type="number" id="inputMetaSemanalHoras" min="1" max="168" value="24" style="border-bottom: 1px solid var(--primary-green); padding: 8px; color: white; min-height: 40px;">
         </div>
         <div class="input-group">
           <label>Meta Semanal de Questões (ex: 300)</label>
-          <input type="number" id="inputMetaSemanalQuestoes" min="1" max="5000" value="300" style="border-bottom: 1px solid var(--primary-green); padding: 5px; color: white;">
+          <input type="number" id="inputMetaSemanalQuestoes" min="1" max="5000" value="300" style="border-bottom: 1px solid var(--primary-green); padding: 8px; color: white; min-height: 40px;">
         </div>
       </div>
 
       <div class="modal-actions">
         <span></span>
-        <div>
+        <div style="display: flex; gap: 10px;">
           <button class="btn-cancelar" onclick="closeMetasModal()">Cancelar</button>
           <button class="btn-salvar" onclick="salvarMetas()">Salvar Metas</button>
         </div>
@@ -803,11 +872,11 @@
   <div id="activity-modal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4 hidden" style="display: none;">
     <div class="bg-[#1e2330] border border-gray-700 w-full max-w-md rounded-2xl p-6 shadow-2xl relative text-gray-200">
       <div class="flex justify-between items-center mb-4">
-        <button id="delete-activity-btn" type="button" class="text-gray-400 hover:text-red-400 transition-colors p-1 hidden" title="Excluir">
+        <button id="delete-activity-btn" type="button" class="text-gray-400 hover:text-red-400 transition-colors p-2 hidden min-h-[40px] min-w-[40px] flex items-center justify-center" title="Excluir">
           <i class="fa-solid fa-trash-can text-lg"></i>
         </button>
         <div class="ml-auto">
-          <button id="close-activity-modal" type="button" class="text-gray-400 hover:text-white transition-colors p-1" title="Fechar">
+          <button id="close-activity-modal" type="button" class="text-gray-400 hover:text-white transition-colors p-2 min-h-[40px] min-w-[40px] flex items-center justify-center" title="Fechar">
             <i class="fa-solid fa-xmark text-lg"></i>
           </button>
         </div>
@@ -820,7 +889,7 @@
         <div class="relative flex items-center">
           <span class="absolute left-3 text-gray-400 z-10"><i class="fa-regular fa-circle"></i></span>
           <select id="disciplina" required onchange="onDisciplinaChange(this.value)"
-            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-2.5 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500">
+            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500 min-h-[44px]">
             <option value="">Selecione a Disciplina</option>
           </select>
         </div>
@@ -829,7 +898,7 @@
         <div class="relative flex items-center">
           <span class="absolute left-3 text-gray-400 z-10"><i class="fa-solid fa-bookmark"></i></span>
           <select id="topico" required disabled onchange="onTopicoChange(this.value)"
-            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-2.5 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500 disabled:opacity-40">
+            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500 disabled:opacity-40 min-h-[44px]">
             <option value="">Selecione a disciplina primeiro</option>
           </select>
         </div>
@@ -838,7 +907,7 @@
         <div class="relative flex items-center">
           <span class="absolute left-3 text-gray-400 z-10"><i class="fa-solid fa-list-check"></i></span>
           <select id="subtopico" required disabled
-            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-2.5 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500 disabled:opacity-40">
+            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500 disabled:opacity-40 min-h-[44px]">
             <option value="">Selecione o tópico primeiro</option>
           </select>
         </div>
@@ -846,24 +915,24 @@
         <div class="relative flex items-center">
           <span class="absolute left-3 text-gray-400"><i class="fa-regular fa-clock"></i></span>
           <input type="time" id="time" value="00:00" required
-            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-2.5 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500">
+            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500 min-h-[44px]">
         </div>
 
         <div class="relative flex items-center">
           <span class="absolute left-3 text-gray-400"><i class="fa-regular fa-calendar"></i></span>
           <input type="date" id="date" required
-            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-2.5 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500">
+            class="w-full bg-[#161922] border border-gray-700 rounded-lg py-3 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-emerald-500 min-h-[44px]">
         </div>
 
         <div>
-          <select id="repetition" class="w-full bg-[#161922] border border-gray-700 rounded-lg py-2.5 px-4 text-sm text-white focus:outline-none focus:border-emerald-500">
+          <select id="repetition" class="w-full bg-[#161922] border border-gray-700 rounded-lg py-3 px-4 text-sm text-white focus:outline-none focus:border-emerald-500 min-h-[44px]">
             <option value="Não se repete">Não se repete</option>
             <option value="Diariamente">Diariamente</option>
             <option value="Semanalmente">Semanalmente</option>
           </select>
         </div>
 
-        <button type="submit" class="w-full bg-[#0f766e] hover:bg-[#115e59] text-white font-medium py-2.5 rounded-lg text-sm transition-colors mt-2 cursor-pointer">
+        <button type="submit" class="w-full bg-[#0f766e] hover:bg-[#115e59] text-white font-medium py-3 rounded-lg text-sm transition-colors mt-2 cursor-pointer min-h-[44px]">
           Salvar
         </button>
       </form>
@@ -1140,7 +1209,7 @@
         colDiv.innerHTML = `
           <div class="p-3 border-b border-gray-800 text-center flex justify-between items-center">
             <span class="text-xs font-semibold text-gray-400">${col.day}, ${col.date}</span>
-            <button onclick="openModalForDate('${col.fullDate}')" class="text-emerald-400 hover:text-emerald-300 p-1 rounded transition-colors cursor-pointer" title="Adicionar atividade">
+            <button onclick="openModalForDate('${col.fullDate}')" class="text-emerald-400 hover:text-emerald-300 p-2 rounded transition-colors cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center" title="Adicionar atividade">
               <i class="fa-solid fa-plus text-sm"></i>
             </button>
           </div>
@@ -1622,10 +1691,10 @@
           subsHtml += `
             <div class="subtopic-row">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <input type="checkbox" ${sub.concluido ? 'checked' : ''} onchange="toggleSubtopico(${index}, ${sIndex})" style="cursor: pointer; width: 14px; height: 14px;">
+                <input type="checkbox" ${sub.concluido ? 'checked' : ''} onchange="toggleSubtopico(${index}, ${sIndex})" style="cursor: pointer; width: 16px; height: 16px;">
                 <span style="color: ${sub.concluido ? 'var(--text-muted)' : 'white'};">${sub.nome}</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <span style="font-size: 11px; color: var(--primary-green); font-weight: bold;" title="Questões resolvidas neste subtópico">📝 ${questoesSub} q</span>
                 <div class="action-btns-group">
                   <button class="btn-action-small" onclick="editarSubtopico(${index}, ${sIndex})">Editar</button>
@@ -1646,7 +1715,7 @@
               <button class="btn-action-small" onclick="adicionarSubtopicoPrompt(${index})" title="Adicionar Subtópico">+ Subtópico</button>
               <button class="btn-action-small" onclick="editarTopico(${index})">Editar</button>
               <button class="btn-action-small delete" onclick="excluirTopico(${index})">Excluir</button>
-              <button class="subject-select-btn" style="background:var(--bg-dark); color:var(--primary-green); border:1px solid var(--primary-green); padding:3px 8px; border-radius:4px; font-size:11px; cursor:pointer; font-weight:bold;" onclick="openRegistroModal('${item.disciplina.replace(/'/g, "\\'")}', '${item.topico.replace(/'/g, "\\'")}')">Timer</button>
+              <button class="subject-select-btn" style="background:var(--bg-dark); color:var(--primary-green); border:1px solid var(--primary-green); padding:6px 10px; border-radius:4px; font-size:11px; cursor:pointer; font-weight:bold; min-height:36px; display:inline-flex; align-items:center;" onclick="openRegistroModal('${item.disciplina.replace(/'/g, "\\'")}', '${item.topico.replace(/'/g, "\\'")}')">Timer</button>
             </div>
           </div>
           <div class="subtopics-container">
