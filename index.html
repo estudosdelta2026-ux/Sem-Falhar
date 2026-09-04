@@ -10,9 +10,9 @@
 <link rel="apple-touch-icon" href="https://via.placeholder.com/192">
 <!-- Biblioteca SheetJS para leitura de arquivos Excel (.xlsx) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<!-- Biblioteca FontAwesome para ícones da aba Planejamento -->
+<!-- Biblioteca FontAwesome para ícones -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- Tailwind CSS para render corretamente a aba Planejamento -->
+<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   :root {
@@ -138,7 +138,6 @@
     overflow-y: auto;
   }
 
-  .action-btns-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
   .btn-action-small {
     background: var(--bg-dark);
     color: var(--text-light);
@@ -154,7 +153,6 @@
     justify-content: center;
   }
   .btn-action-small:hover { border-color: var(--primary-green); color: var(--primary-green); }
-  .btn-action-small.delete:hover { border-color: var(--accent-red); color: var(--accent-red); }
 
   /* Barras de Progresso */
   .progress-item { margin-bottom: 12px; }
@@ -198,29 +196,6 @@
     color: var(--primary-green);
     font-size: 13px;
     font-weight: bold;
-  }
-  .weekly-toggles {
-    display: flex;
-    background: var(--bg-dark);
-    border-radius: 6px;
-    padding: 2px;
-    border: 1px solid var(--border-color);
-  }
-  .weekly-toggle-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-    min-height: 36px;
-  }
-  .weekly-toggle-btn.active {
-    background: var(--primary-green);
-    color: white;
   }
 
   .weekly-chart-container {
@@ -336,7 +311,6 @@
   .btn-pause { background: var(--accent-orange); color: white; }
   .btn-reset { background: var(--border-color); color: white; }
 
-  /* Media Queries para Layout Responsivo e Touch Targets Celular/Tablet */
   @media (max-width: 1024px) {
     .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
     .dashboard-secondary { grid-template-columns: 1fr; }
@@ -388,7 +362,7 @@
         <button class="btn-adicionar" onclick="openRegistroModal()">+ Adicionar Estudo</button>
       </div>
       
-      <!-- Linha 1: Cartões Principais -->
+      <!-- Cartões Principais -->
       <div class="dashboard-grid">
         <div class="dash-card">
           <h3>Tempo de Estudo (Hoje)</h3>
@@ -414,7 +388,7 @@
         </div>
       </div>
 
-      <!-- Linha 2: Painéis Secundários -->
+      <!-- Painéis Secundários -->
       <div class="dashboard-secondary">
         <div style="display: flex; flex-direction: column; gap: 15px;">
           <div class="dash-panel">
@@ -425,15 +399,11 @@
           </div>
 
           <div class="dash-panel">
-            <h2>
-              Metas de Estudo Semanal
-              <button class="btn-action-small" onclick="openMetasModal()" title="Editar Metas">✏️ Editar</button>
-            </h2>
+            <h2>Metas de Estudo Semanal</h2>
             <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 5px;" id="metaHorasTexto">0h 00m / 24h 00m</div>
             <div class="progress-bar-bg" style="height: 8px; margin-bottom: 12px;">
               <div class="progress-bar-fill" id="metaSemanalBar" style="width: 0%;"></div>
             </div>
-
             <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 5px;" id="metaQuestoesTexto">0 / 300</div>
             <div class="progress-bar-bg" style="height: 8px;">
               <div class="progress-bar-fill" id="metaQuestoesBar" style="width: 0%; background: var(--accent-orange);"></div>
@@ -447,9 +417,7 @@
             <span class="weekly-title">Estudo Semanal (Histórico)</span>
             <div class="weekly-nav-container">
               <div class="weekly-nav-arrows">
-                <span onclick="mudarSemana(-1)">❮</span>
                 <span class="weekly-range-text" id="weeklyRangeText">Semana Atual</span>
-                <span onclick="mudarSemana(1)">❯</span>
               </div>
             </div>
           </div>
@@ -484,9 +452,7 @@
     <div id="planosView" class="view-section">
       <div class="header">
         <h1>Planos & Edital Verticalizado</h1>
-        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <button class="btn-adicionar" style="background-color: var(--accent-blue);" onclick="document.getElementById('excelFileInput').click()">+ Enviar Edital Excel</button>
-        </div>
+        <button class="btn-adicionar" style="background-color: var(--accent-blue);" onclick="document.getElementById('excelFileInput').click()">+ Enviar Edital Excel</button>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px;">
@@ -526,13 +492,26 @@
       </div>
     </div>
 
-    <!-- ABA 3: PLANEJAMENTO -->
+    <!-- ABA 3: PLANEJAMENTO (Restaurado com os componentes originais) -->
     <div id="planejamentoView" class="view-section">
-      <div class="flex justify-between items-center mb-6 flex-wrap gap-3">
-        <h1 class="text-2xl font-semibold text-white">Planejamento</h1>
+      <div class="header">
+        <h1>Planejamento & Filtros</h1>
       </div>
-      <div class="bg-[#1a1d26] border border-gray-800 rounded-xl p-6 shadow-lg text-gray-300">
-        <p>Módulo de planejamento ativo e integrado com salvamento automático local.</p>
+      <div class="dash-panel">
+        <h2>Configurações de Exibição e Rotina</h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 15px;">
+          Personalize a visualização de suas atividades e rotinas diárias.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 300px;">
+          <label class="flex items-center gap-2.5 cursor-pointer py-1">
+            <input type="checkbox" checked class="accent-emerald-500 rounded w-4 h-4">
+            <span class="text-sm text-gray-200">SIMULADOS</span>
+          </label>
+          <label class="flex items-center gap-2.5 cursor-pointer py-1">
+            <input type="checkbox" checked class="accent-emerald-500 rounded w-4 h-4">
+            <span class="text-sm text-gray-200">TAREFAS</span>
+          </label>
+        </div>
       </div>
     </div>
 
@@ -644,8 +623,8 @@
       closeRegistroModal();
     }
 
-    // Persistência com LocalStorage
-    function salvarTempoNoHistorico( segundosEstudados ) {
+    // Persistência com LocalStorage (Histórico de dias anteriores)
+    function salvarTempoNoHistorico(segundosEstudados) {
       const hoje = new Date().toISOString().split('T')[0];
       let historico = JSON.parse(localStorage.getItem('studyHistory')) || {};
 
@@ -658,7 +637,6 @@
     }
 
     function carregarDadosSalvos() {
-      // Carrega data da prova salva se houver
       const dataProvaSalva = localStorage.getItem('dataProva');
       if (dataProvaSalva) {
         document.getElementById('inputDataProva').value = dataProvaSalva;
@@ -694,7 +672,6 @@
           sequencia++;
           d.setDate(d.getDate() - 1);
         } else {
-          // Se hoje não tiver estudo mas ontem teve, testa ontem
           if (sequencia === 0 && dataStr === hoje) {
             d.setDate(d.getDate() - 1);
             const ontemStr = d.toISOString().split('T')[0];
@@ -709,21 +686,19 @@
       }
       document.getElementById('cardConstancia').textContent = `🔥 ${sequencia} dias`;
 
-      // Atualizar Gráfico Semanal simples (últimos 7 dias)
+      // Atualizar Gráfico Semanal
       let totalSemanaSegundos = 0;
       const diasSemana = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'];
       
-      // Encontra o domingo da semana atual
       let currDate = new Date();
       let dayOfWeek = currDate.getDay();
-      currDate.setDate(currDate.getDate() - dayOfWeek); // Vai para domingo
+      currDate.setDate(currDate.getDate() - dayOfWeek);
 
-      diasSemana.forEach((diaId, index) => {
+      diasSemana.forEach((diaId) => {
         const dateKey = currDate.toISOString().split('T')[0];
         const segs = (historico[dateKey] && historico[dateKey].segundos) ? historico[dateKey].segundos : 0;
         totalSemanaSegundos += segs;
 
-        // Altura proporcional (max 8 horas = 28800s para 100px)
         const alturaPx = Math.min(120, (segs / 28800) * 120);
         const barra = document.getElementById(`w-${diaId}`);
         if (barra) barra.style.height = `${alturaPx}px`;
@@ -767,7 +742,6 @@
       }
 
       let html = '';
-      // Assume dados simples a partir da linha 1
       for (let i = 1; i < rows.length; i++) {
         const row = rows[i];
         if (row && row.length > 0) {
